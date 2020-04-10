@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RepoComponent } from './repo/repo.component';
 import { SearchFormComponent } from './search-form/search-form.component';
+import { NgProgress, NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,14 @@ import { SearchFormComponent } from './search-form/search-form.component';
     RepoComponent,
     SearchFormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    NgProgressModule.forRoot(),
+    NgProgressHttpClientModule,
+  ],
   providers: [UserServiceService],
   bootstrap: [AppComponent],
 })

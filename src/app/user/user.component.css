@@ -6,9 +6,20 @@
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 8px 16px 5px rgb(255, 127, 80);
 }
-
+span {
+  float: right;
+}
+.card:hover {
+  box-shadow: 4px 8px 16px 5px rgb(100, 149, 237);
+}
+.jumbotron {
+  box-shadow: 4px 8px 16px 5px rgb(255, 127, 80);
+}
+.jumbotron:hover {
+  box-shadow: 4px 8px 16px 5px rgb(100, 149, 237);
+}
 .container::after,
 .row::after {
   content: "";
@@ -33,5 +44,16 @@
 }
 
 .button:hover {
+  background-color: coral;
+}
+.formA {
+  padding-bottom: 20px;
+}
+.bg-black {
   background-color: #555;
+  color: aliceblue;
+}
+.bg-blacks {
+  background-color: black;
+  color: coral;
 }
