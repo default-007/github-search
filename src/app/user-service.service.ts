@@ -24,6 +24,8 @@ export class UserServiceService {
   searchUser(userName: string) {
     interface Responce {
       url: string;
+      name: string;
+      email: string;
       login: string;
       html_url: string;
       location: string;

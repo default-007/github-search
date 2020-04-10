@@ -43,18 +43,18 @@ export class UserComponent implements OnInit {
   //this.repo = this.userService.repo;
   //}
   //}
-  searchs(searchName) {
-    this.myService.searchUSer(searchName).then(
+  search(userName) {
+    this.userService.searchUser(userName).then(
       (success) => {
-        this.user = this.myService.foundUser;
+        this.user = this.userService.foundUser;
       },
       (error) => {
         console.log(error);
       }
     );
-    this.repoService.getReopos(searchName).then(
+    this.repoService.getRepos(userName).then(
       (results) => {
-        this.repo = this.repoService.allRepos;
+        this.repo = this.repoService.allRepo;
         console.log(this.repo);
       },
       (error) => {
@@ -64,6 +64,6 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchs('Owiti-Charles');
+    this.search('default-007');
   }
 }

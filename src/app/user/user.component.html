@@ -1,4 +1,5 @@
 <div class="container">
+  <ng-progress></ng-progress>
   <div class="containe">
     <img src="https://res.cloudinary.com/dzawgnnlr/image/upload/q_auto/f_auto/w_auto/github_logo.png" alt="git"
       width="150" height="150" class="logo">
@@ -26,6 +27,8 @@
             <img src="{{user.avatar_url}}" alt="profile" style="width:100%">
             <div class="container">
               <h2>{{user.name}}</h2>
+              <hr>
+              <p>{{user.login}}</p>
               <p class="title">{{user.email}}</p>
               <hr>
               <p>Location: <span>{{user.location}}</span></p>
@@ -35,6 +38,8 @@
               <p>Following:<span>{{user.following}}</span></p>
               <hr>
               <p>Repositories:<span>{{user.public_repos}}</span></p>
+              <hr>
+              <p>Joined: <span>{{usesr.created_at}}</span></p>
               <a href="{{user.html_url}}" target="_blank"><button class="btn btn-success">Go To Profile</button></a>
             </div>
           </div>
@@ -45,11 +50,41 @@
       <div>
         <div class="card">
           <h2>Repositories</h2>
-          <ol>
-            <li *ngFor="let rep of repo" class="card">
-              <h3>{{repo.name}}</h3>
-            </li>
-          </ol>
+          <div class="container allrepos">
+            <div class="card" *ngFor="let repository of repo" style="width: 22rem;" class="repo">
+              <div class="card-body">
+                <h5 class="card-title"><span class="top">Repo Name:</span>{{repository.name}} </h5>
+                <div class="card-text">
+                  <hr>
+                  <div class="desc"><span class="top">Description:</span> {{repository.description}}
+                  </div>
+                  <hr>
+                  <div class="card-subtitle mb-2">
+                    <span class="top">Language: </span> {{repository.language}}
+                  </div>
+                  <div class="card-subtitle mb-2"><span class="top">Created: <span
+                        id="created">{{repository.created_at}}</span> On:</span>
+                    {{repository.created_at}}
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="btn-group" role="group" aria-label="Third group">
+                  <button class="btn btn-sm btn-info"><i class="fa fa-eye" style="font-size:16px"></i> <span
+                      class="forks">{{repository.watchers_count}}</span></button>
+                </div>
+                <div class="btn-group" role="group" aria-label="Third group">
+                  <button class="btn btn-sm btn-outline-danger"><i class="fa fa-code-fork" style="font-size:16px"></i>
+                    <span class="forks">{{repository.forks}}</span></button>
+                </div>
+                <div class="btn-group" role="group" aria-label="Third group">
+                  <button class="btn btn-sm btn-success" id="visit"><a href="{{repository.html_url}}"
+                      class="card-link">VIEW
+                      <i class="fa fa-arrow-circle-right" style="font-size:16px"></i></a> </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
