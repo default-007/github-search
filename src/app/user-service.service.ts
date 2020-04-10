@@ -8,95 +8,90 @@ import { Repo } from './repo';
   providedIn: 'root',
 })
 export class UserServiceService {
-  user: User;
-  repo: Repo;
+  foundUser: User;
+  allRepo: Repo;
   private userName: string;
   apiKey: string = environment.apiKey;
   //apiUrl = 'https://api.github.com/users';
 
   constructor(private http: HttpClient) {
-    this.user = new User('', '', '', '', 0, 0, 0);
-    this.repo = new Repo('', '', '');
+    this.foundUser = new User('', '', '', '', '', '', 0, 0, 0, new Date());
+    this.allRepo = new Repo('', '', '', new Date(), 0, 0, '');
     this.userName = 'default-007';
   }
 
   // getting profile info including the username, followers and following and the profile picture
-  userInfo() {
-    interface ApiResponse {
+  searchUser(userName: string) {
+    interface Responce {
+      url: string;
       login: string;
-      public_repos: number;
-      avatar_url: any;
       html_url: string;
-      name: string;
-      following: number;
+      location: string;
+      public_repos: number;
       followers: number;
+      following: number;
+      avatar_url: string;
+      created_at: Date;
     }
 
-    let promise = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       this.http
-        .get<ApiResponse>(
+        .get<Responce>(
           'https://api.github.com/users/' +
-            this.userName +
+            userName +
             '?access_token=' +
-            this.apiKey
+            environment.apiKey
         )
         .toPromise()
         .then(
-          (res) => {
-            this.user.login = res.login;
-            this.user.avatar_url = res.avatar_url;
-            this.user.html_url = res.html_url;
-            this.user.name = res.name;
-            this.user.followers = res.followers;
-            this.user.following = res.following;
-            this.user.public_repos = res.public_repos;
-
+          (result) => {
+            this.foundUser = result;
+            console.log(this.foundUser);
             resolve();
           },
           (error) => {
-            this.user.name = 'User name cannot be found';
-            this.user.avatar_url = "Can't load image";
-            this.user.html_url = '404 page not found';
-            this.user.followers = 0;
-            this.user.following = 0;
-
-            reject(error);
+            console.log(error);
+            reject();
           }
         );
     });
-    return promise;
   }
 
   // getting repo info
 
-  getRepos(username: any) {
-    interface ApiResponse {
+  getRepos(userName) {
+    interface Repos {
       name: string;
       html_url: string;
       description: string;
+      forks: number;
+      watchers_count: number;
+      language: string;
+      created_at: Date;
     }
-
-    const promise = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       this.http
-        .get<ApiResponse>(
+        .get<Repos>(
           'https://api.github.com/users/' +
-            this.userName +
-            '/repos?access_token=' +
-            this.apiKey
+            searchName +
+            '/repos?order=created&sort=asc?access_token=' +
+            environment.apiKey
         )
         .toPromise()
         .then(
-          (res) => {
-            this.repo = res;
+          (results) => {
+            this.allRepo = results;
+            resolve();
           },
           (error) => {
-            reject(error);
+            console.log(error);
+            reject();
           }
         );
     });
-    return promise;
-  }
-  getUsername(username: string) {
-    this.userName = username;
   }
 }
+//getUsername(username: string) {
+//this.userName = username;
+//}
+//}

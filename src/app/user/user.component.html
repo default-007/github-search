@@ -1,6 +1,22 @@
 <div class="container">
+  <div class="containe">
+    <img src="https://res.cloudinary.com/dzawgnnlr/image/upload/q_auto/f_auto/w_auto/github_logo.png" alt="git"
+      width="150" height="150" class="logo">
+    <h1 class="display-4 text-center animated slideInLeft"> GitSearch</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="text-center">Input Info</h3>
+        <form class="form-group" id="brian">
+          <input type="text" class="form-control" placeholder="Input your username" [(ngModel)]="username"
+            name="username" (keyup)="getProfile()" maxlength="20">
+          <br>
+          <button class="btn btn-primary">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
   <div class="row">
-    <div class="column">
+    <div class="col-md-4">
       <div class="card">
         <div class="card-title">
           <h3 class="text-center info">Users Profile</h3>
@@ -11,14 +27,31 @@
             <div class="container">
               <h2>{{user.name}}</h2>
               <p class="title">{{user.email}}</p>
-              <p>Follwers:<br><span>{{user.followers}}</span></p>
-              <p>Following:<br><span>{{user.following}}</span></p>
-              <p>Repositories:<br><span>{{user.public_repos}}</span></p>
-              <p><a href="{{user.html_url}}" target="_blank"><button class="btn btn-success">Go To Profile</button></a>
-              </p>
+              <hr>
+              <p>Location: <span>{{user.location}}</span></p>
+              <hr>
+              <p>Follwers:<span>{{user.followers}}</span></p>
+              <hr>
+              <p>Following:<span>{{user.following}}</span></p>
+              <hr>
+              <p>Repositories:<span>{{user.public_repos}}</span></p>
+              <a href="{{user.html_url}}" target="_blank"><button class="btn btn-success">Go To Profile</button></a>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="col-md-8">
+      <div>
+        <div class="card">
+          <h2>Repositories</h2>
+          <ol>
+            <li *ngFor="let rep of repo" class="card">
+              <h3>{{repo.name}}</h3>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
   </div>

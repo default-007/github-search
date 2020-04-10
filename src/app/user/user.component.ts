@@ -18,29 +18,52 @@ export class UserComponent implements OnInit {
   username: string;
 
   constructor(
-    private userService: UserServiceService,
-    private httpClient: HttpClient
+    public userService: UserServiceService,
+    private repoService: UserServiceService
   ) {}
 
-  getProfile() {
-    this.userService.getUsername(this.username);
-    this.userService.userInfo();
-    this.user = this.userService.user;
+  //getProfile() {
+  //this.userService.getUsername(this.username);
+  //his.userService.userInfo();
+  //this.user = this.userService.user;
 
-    this.userService.getRepos(this.username);
-    this.repo = this.userService.repo;
-    console.log(this.repo);
-  }
+  // this.userService.getRepos(this.username);
+  // this.repo = this.userService.repo;
+  // console.log(this.repo);
+  //}
 
-  switchSearch() {
-    this.searchUsers = !this.searchUsers;
+  //  this.searchUsers = !this.searchUsers;
+  //}
+
+  // ngOnInit() {
+  // this.userService.userInfo();
+  //this.user = this.userService.user;
+
+  //this.userService.getRepos(this.username);
+  //this.repo = this.userService.repo;
+  //}
+  //}
+  searchs(searchName) {
+    this.myService.searchUSer(searchName).then(
+      (success) => {
+        this.user = this.myService.foundUser;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    this.repoService.getReopos(searchName).then(
+      (results) => {
+        this.repo = this.repoService.allRepos;
+        console.log(this.repo);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   ngOnInit() {
-    this.userService.userInfo();
-    this.user = this.userService.user;
-
-    this.userService.getRepos(this.username);
-    this.repo = this.userService.repo;
+    this.searchs('Owiti-Charles');
   }
 }

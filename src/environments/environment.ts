@@ -4,9 +4,8 @@
 
 export const environment = {
   production: false,
-  apiKey: '3dc708a3d2b1f81922a7d298997d98842b344d4d',
+  apiKey: '98fe9f10c0e9328d1d433f3bcd8bda166ffd36b5',
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
