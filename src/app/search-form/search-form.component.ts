@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-form',
   templateUrl: './search-form.component.html',
-  styleUrls: ['./search-form.component.css']
+  styleUrls: ['./search-form.component.css'],
 })
 export class SearchFormComponent implements OnInit {
+  userName: string;
+  @Output() searchOutput = new EventEmitter<any>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  search() {
+    this.searchOutput.emit(this.userName);
+    this.userName = '';
   }
-
 }
