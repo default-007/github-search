@@ -2,13 +2,14 @@
   <div class="row">
     <div class="column">
       <div class="card">
-        <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+        <img src="{{user.avatar_url}}" alt="Jane" style="width:100%">
         <div class="container">
-          <h2>Jane Doe</h2>
+          <h2>{{user.name}}</h2>
           <p class="title">CEO & Founder</p>
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p>example@example.com</p>
-          <p><button class="button">Contact</button></p>
+          <p>Follwers:<br><span>{{user.followers}}</span></p>
+          <p>Following:<br><span>{{user.following}}</span></p>
+          <p>Repositories:<br><span>{{user.public_repos}}</span></p>
+          <p><a href="{{user.html_url}}" target="_blank"><button class="btn btn-success">Go To Profile</button></a></p>
         </div>
       </div>
     </div>
