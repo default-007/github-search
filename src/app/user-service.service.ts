@@ -12,12 +12,12 @@ export class UserServiceService {
   repo: Repo;
   private userName: string;
   apiKey: string = environment.apiKey;
-  apiUrl = 'https://api.github.com/users';
+  //apiUrl = 'https://api.github.com/users';
 
   constructor(private http: HttpClient) {
     this.user = new User('', '', '', '', 0, 0, 0);
     this.repo = new Repo('', '', '');
-    this.userName = 'brian23-eng';
+    this.userName = 'default-007';
   }
 
   // getting profile info including the username, followers and following and the profile picture
