@@ -5,14 +5,19 @@
         <div class="card-title">
           <h3 class="text-center info">Users Profile</h3>
         </div>
-        <img src="{{user.avatar_url}}" alt="Jane" style="width:100%">
-        <div class="container">
-          <h2>{{user.name}}</h2>
-          <p class="title">CEO & Founder</p>
-          <p>Follwers:<br><span>{{user.followers}}</span></p>
-          <p>Following:<br><span>{{user.following}}</span></p>
-          <p>Repositories:<br><span>{{user.public_repos}}</span></p>
-          <p><a href="{{user.html_url}}" target="_blank"><button class="btn btn-success">Go To Profile</button></a></p>
+        <div class="card-body">
+          <div *ngIf="searchUsers">
+            <img src="{{user.avatar_url}}" alt="profile" style="width:100%">
+            <div class="container">
+              <h2>{{user.name}}</h2>
+              <p class="title">{{user.email}}</p>
+              <p>Follwers:<br><span>{{user.followers}}</span></p>
+              <p>Following:<br><span>{{user.following}}</span></p>
+              <p>Repositories:<br><span>{{user.public_repos}}</span></p>
+              <p><a href="{{user.html_url}}" target="_blank"><button class="btn btn-success">Go To Profile</button></a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

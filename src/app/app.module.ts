@@ -9,9 +9,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UserServiceService } from './user-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RepoComponent } from './repo/repo.component';
 
 @NgModule({
-  declarations: [AppComponent, AboutComponent, UserComponent, NavbarComponent],
+  declarations: [AppComponent, AboutComponent, UserComponent, NavbarComponent, RepoComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [UserServiceService],
   bootstrap: [AppComponent],
