@@ -1,1 +1,14 @@
-<p>search-form works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <form class="form-inline active-cyan-4">
+        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Enter your Username...."
+          name="userName" [(ngModel)]="userName" aria-label="Search">
+        <button class="btn btn-info  btn-sm" (click)="search()">
+          Search</button>
+      </form>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>

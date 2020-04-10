@@ -10,14 +10,12 @@ import { Repo } from './repo';
 export class UserServiceService {
   foundUser: User;
   allRepo: Repo;
-  private userName: string;
   apiKey: string = environment.apiKey;
   //apiUrl = 'https://api.github.com/users';
 
   constructor(private http: HttpClient) {
     this.foundUser = new User('', '', '', '', '', '', 0, 0, 0, new Date());
     this.allRepo = new Repo('', '', '', new Date(), 0, 0, '');
-    this.userName = 'default-007';
   }
 
   // getting profile info including the username, followers and following and the profile picture
@@ -75,7 +73,7 @@ export class UserServiceService {
       this.http
         .get<Repos>(
           'https://api.github.com/users/' +
-            searchName +
+            userName +
             '/repos?order=created&sort=asc?access_token=' +
             environment.apiKey
         )

@@ -13,7 +13,14 @@ import { RepoComponent } from './repo/repo.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 
 @NgModule({
-  declarations: [AppComponent, AboutComponent, UserComponent, NavbarComponent, RepoComponent, SearchFormComponent],
+  declarations: [
+    AppComponent,
+    AboutComponent,
+    UserComponent,
+    NavbarComponent,
+    RepoComponent,
+    SearchFormComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [UserServiceService],
   bootstrap: [AppComponent],

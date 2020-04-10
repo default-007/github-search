@@ -1,5 +1,4 @@
 <div class="container">
-  <ng-progress></ng-progress>
   <div class="containe">
     <img src="https://res.cloudinary.com/dzawgnnlr/image/upload/q_auto/f_auto/w_auto/github_logo.png" alt="git"
       width="150" height="150" class="logo">
@@ -7,12 +6,7 @@
     <div class="row">
       <div class="col-md-6">
         <h3 class="text-center">Input Info</h3>
-        <form class="form-group" id="brian">
-          <input type="text" class="form-control" placeholder="Input your username" [(ngModel)]="username"
-            name="username" (keyup)="getProfile()" maxlength="20">
-          <br>
-          <button class="btn btn-primary">Search</button>
-        </form>
+        <app-search-form (searchOutput)="search($event)"></app-search-form>
       </div>
     </div>
   </div>
@@ -39,7 +33,7 @@
               <hr>
               <p>Repositories:<span>{{user.public_repos}}</span></p>
               <hr>
-              <p>Joined: <span>{{usesr.created_at}}</span></p>
+              <p>Joined: <span>{{user.created_at}}</span></p>
               <a href="{{user.html_url}}" target="_blank"><button class="btn btn-success">Go To Profile</button></a>
             </div>
           </div>

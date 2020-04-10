@@ -1,4 +1,5 @@
 export class User {
+  static result: any;
   constructor(
     public login: string,
     public location: string,

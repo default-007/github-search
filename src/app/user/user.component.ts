@@ -22,27 +22,6 @@ export class UserComponent implements OnInit {
     private repoService: UserServiceService
   ) {}
 
-  //getProfile() {
-  //this.userService.getUsername(this.username);
-  //his.userService.userInfo();
-  //this.user = this.userService.user;
-
-  // this.userService.getRepos(this.username);
-  // this.repo = this.userService.repo;
-  // console.log(this.repo);
-  //}
-
-  //  this.searchUsers = !this.searchUsers;
-  //}
-
-  // ngOnInit() {
-  // this.userService.userInfo();
-  //this.user = this.userService.user;
-
-  //this.userService.getRepos(this.username);
-  //this.repo = this.userService.repo;
-  //}
-  //}
   search(userName) {
     this.userService.searchUser(userName).then(
       (success) => {
@@ -67,3 +46,24 @@ export class UserComponent implements OnInit {
     this.search('default-007');
   }
 }
+//getProfile() {
+//this.userService.getUsername(this.username);
+//his.userService.userInfo();
+//this.user = this.userService.user;
+
+// this.userService.getRepos(this.username);
+// this.repo = this.userService.repo;
+// console.log(this.repo);
+//}
+
+//  this.searchUsers = !this.searchUsers;
+//}
+
+// ngOnInit() {
+// this.userService.userInfo();
+//this.user = this.userService.user;
+
+//this.userService.getRepos(this.username);
+//this.repo = this.userService.repo;
+//}
+//}
