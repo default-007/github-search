@@ -14,6 +14,7 @@ import { SearchFormComponent } from './search-form/search-form.component';
 import { NgProgress, NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
 import { UnderlineDirective } from './underline.directive';
+import { DatePipePipe } from './date-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { UnderlineDirective } from './underline.directive';
     RepoComponent,
     SearchFormComponent,
     UnderlineDirective,
+    DatePipePipe,
   ],
   imports: [
     BrowserModule,
