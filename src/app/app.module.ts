@@ -13,6 +13,7 @@ import { RepoComponent } from './repo/repo.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { NgProgress, NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
+import { UnderlineDirective } from './underline.directive';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
     NavbarComponent,
     RepoComponent,
     SearchFormComponent,
+    UnderlineDirective,
   ],
   imports: [
     BrowserModule,
