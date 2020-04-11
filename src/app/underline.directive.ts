@@ -1,5 +1,5 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
-import { Input, Renderer2 } from '@angular/core';
+
 @Directive({
   selector: '[appUnderline]',
 })
