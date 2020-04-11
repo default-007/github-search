@@ -27,7 +27,8 @@
               <h3 appUnderline>{{user.name}}</h3>
               <hr>
               <p>Username: <span>{{user.login}}</span></p>
-              <p class="title"> <span>{{user.email}}</span> </p>
+              <hr>
+              <p>Email: <span>{{user.email}}</span> </p>
               <hr>
               <p>Location: <span>{{user.location}}</span></p>
               <hr>
@@ -37,7 +38,7 @@
               <hr>
               <p>Repositories:<span>{{user.public_repos}}</span></p>
               <hr>
-              <p>Joined: <span>{{user.created_at}}</span></p>
+              <p>Joined: <span>{{user.created_at | datePipe}}</span></p>
               <a href="{{user.html_url}}" target="_blank"><button class="button">Go To Profile</button></a>
             </div>
           </div>
@@ -48,16 +49,17 @@
       <div>
         <div class=" card bg-black">
           <h2 class="text-center">Repositories</h2>
-          <div class="container allrepos">
-            <div class="card" *ngFor="let repository of repo" class="repo">
+          <div class="allrepos">
+            <div class="label bg-black" *ngFor="let repository of repo">
               <div class="card-body">
-                <h5 class="card-title">Repo Name:<span appUnderline>{{repository.name}}</span> </h5>
+                <h4 class="card-title h4">REPO NAME:<span class="rep" appUnderline>{{repository.name}}</span> </h4>
                 <div class="card-text">
                   <hr>
-                  <div class="desc">Description:<span> {{repository.description}}</span></div>
-                  <hr>
+                  <h5 class="">DESCRIPTION:<span> {{repository.description}}</span></h5>
                   <div class="card-subtitle mb-2">Language: <span> {{repository.language}}</span></div>
-                  <div class="card-subtitle mb-2">Created: <span id="created">{{repository.created_at}}</span></div>
+                  <div class="card-subtitle mb-2">Created: <span
+                      id="created">{{repository.created_at | datePipe}}</span> <br>
+                    On: <span>{{repository.created_at | date}}</span></div>
                 </div>
               </div>
               <div class="card-footer">
