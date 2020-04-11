@@ -24,7 +24,7 @@
           <div *ngIf="searchUsers">
             <img src="{{user.avatar_url}}" alt="profile" style="width:100%">
             <div class="container">
-              <h2>{{user.name}}</h2>
+              <h3 appUnderline>{{user.name}}</h3>
               <hr>
               <p>Username: <span>{{user.login}}</span></p>
               <p class="title"> <span>{{user.email}}</span> </p>
@@ -51,7 +51,7 @@
           <div class="container allrepos">
             <div class="card" *ngFor="let repository of repo" class="repo">
               <div class="card-body">
-                <h5 class="card-title">Repo Name:<span>{{repository.name}}</span> </h5>
+                <h5 class="card-title">Repo Name:<span appUnderline>{{repository.name}}</span> </h5>
                 <div class="card-text">
                   <hr>
                   <div class="desc">Description:<span> {{repository.description}}</span></div>
@@ -61,16 +61,16 @@
                 </div>
               </div>
               <div class="card-footer">
-                <div class="btn-group" role="group" aria-label="Third group">Watchers:
-                  <button class="btn btn-sm btn-info"><i class="fa fa-eye" style="font-size:16px"></i> <span
-                      class="forks">{{repository.watchers_count}}</span></button>
+                <div class="btn-group">Watchers:
+                  <button class="btn btn-sm btn-info"><span class="forks">{{repository.watchers_count}}</span></button>
                 </div>
-                <div class="btn-group" role="group" aria-label="Third group">Forks:
-                  <button class="btn btn-sm btn-outline-danger"><i class="fa fa-code-fork" style="font-size:16px"></i>
+                <br>
+                <div class="btn-group">Forks:
+                  <button class="btn btn-sm btn-outline-danger">
                     <span class="forks">{{repository.forks}}</span></button>
                 </div>
-                <div class="btn-group" role="group" aria-label="Third group">
-                  <button class="btn btn-success" id="visit"><a href="{{repository.html_url}}"
+                <div class="btn-group float-right">
+                  <button class="btn btn-success" id="visit"><a href="{{repository.html_url}}" target="blank"
                       class="card-link">VIEW</a> </button>
                 </div>
               </div>
