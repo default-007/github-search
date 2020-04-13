@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../user-service.service';
-import { User } from '../user';
 import { Repo } from '../repo';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-repo',
@@ -13,28 +11,16 @@ import { HttpClient } from '@angular/common/http';
 export class RepoComponent implements OnInit {
   searchUsers = true;
 
-  user: User;
   repo: Repo;
   username: string;
 
-  constructor(
-    public userService: UserServiceService,
-    private repoService: UserServiceService
-  ) {}
+  constructor(private repoService: UserServiceService) {}
 
-  search(userName) {
-    this.userService.searchUser(userName).then(
-      (success) => {
-        this.user = this.userService.foundUser;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-    this.repoService.getRepos(userName).then(
+  search(username) {
+    this.repoService.getRepoDetails(username).then(
       (results) => {
-        this.repo = this.repoService.allRepo;
-        console.log(this.repo);
+        this.repo = this.repoService.newRepo;
+        console.log(results);
       },
       (error) => {
         console.log(error);

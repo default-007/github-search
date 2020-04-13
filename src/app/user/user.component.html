@@ -10,7 +10,7 @@
     <div class="row formA">
       <div class="col-md-12">
         <h3 class="text-center">Input Info</h3>
-        <app-search-form (searchOutput)="search($event)"></app-search-form>
+        <app-search-form (searchOutput)="getUser($event)"></app-search-form>
       </div>
     </div>
   </div>
@@ -63,22 +63,13 @@
                 </div>
               </div>
               <div class="card-footer">
-                <div class="btn-group">Watchers:
-                  <button class="btn btn-sm btn-info"><span class="forks">{{repository.watchers_count}}</span></button>
-                </div>
-                <br>
-                <div class="btn-group">Forks:
-                  <button class="btn btn-sm btn-outline-danger">
-                    <span class="forks">{{repository.forks}}</span></button>
-                </div>
                 <div class="btn-group float-right">
-                  <button class="btn btn-success" id="visit"><a href="{{repository.html_url}}" target="blank"
-                      class="card-link">VIEW</a> </button>
+                  <button class="button btn" id="visit"><a href="{{repository.html_url}}" target="blank"
+                      class="card-link">View On Github</a> </button>
                 </div>
               </div>
             </div>
           </div>
-          <app-repo></app-repo>
         </div>
       </div>
     </div>

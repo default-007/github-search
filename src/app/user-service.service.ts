@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpBackend, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { User } from './user';
 import { environment } from '../environments/environment';
 import { Repo } from './repo';
@@ -8,18 +8,18 @@ import { Repo } from './repo';
   providedIn: 'root',
 })
 export class UserServiceService {
-  foundUser: User;
-  allRepo: Repo;
+  newUser: User;
+  newRepo: Repo;
   apiKey: string = environment.apiKey;
   //apiUrl = 'https://api.github.com/users';
 
   constructor(private http: HttpClient) {
-    this.foundUser = new User('', '', '', '', '', '', 0, 0, 0, new Date());
-    this.allRepo = new Repo('', '', '', new Date(), 0, 0, '');
+    this.newUser = new User('', '', '', '', '', '', 0, 0, 0, new Date());
+    this.newRepo = new Repo('', '', '', new Date(), '');
   }
 
-  // getting profile info including the username, followers and following and the profile picture
-  searchUser(userName: string) {
+  // getting user details from the server
+  getUserDetail(username: string) {
     interface Responce {
       url: string;
       name: string;
@@ -34,19 +34,19 @@ export class UserServiceService {
       created_at: Date;
     }
 
-    return new Promise((resolve, reject) => {
+    let promise = new Promise((resolve, reject) => {
       this.http
         .get<Responce>(
           'https://api.github.com/users/' +
-            userName +
+            username +
             '?access_token=' +
             environment.apiKey
         )
         .toPromise()
         .then(
           (result) => {
-            this.foundUser = result;
-            console.log(this.foundUser);
+            this.newUser = result;
+            console.log(this.newUser);
             resolve();
           },
           (error) => {
@@ -55,32 +55,32 @@ export class UserServiceService {
           }
         );
     });
+    return promise;
   }
 
-  // getting repo info
+  // getting repo info from the server
 
-  getRepos(userName) {
+  getRepoDetails(username) {
     interface Repos {
       name: string;
       html_url: string;
       description: string;
-      forks: number;
-      watchers_count: number;
       language: string;
       created_at: Date;
     }
-    return new Promise((resolve, reject) => {
+    let promise = new Promise((resolve, reject) => {
       this.http
         .get<Repos>(
           'https://api.github.com/users/' +
-            userName +
-            '/repos?order=created&sort=asc?access_token=' +
+            username +
+            '/repos?access_token=' +
             environment.apiKey
         )
         .toPromise()
         .then(
           (results) => {
-            this.allRepo = results;
+            this.newRepo = results;
+            console.log(results);
             resolve();
           },
           (error) => {
@@ -89,9 +89,6 @@ export class UserServiceService {
           }
         );
     });
+    return promise;
   }
 }
-//getUsername(username: string) {
-//this.userName = username;
-//}
-//}

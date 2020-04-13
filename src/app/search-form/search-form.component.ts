@@ -12,7 +12,7 @@ export class SearchFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-  search() {
+  getUser() {
     this.searchOutput.emit(this.userName);
     this.userName = '';
   }

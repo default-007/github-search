@@ -9,7 +9,10 @@
 
 # dependencies
 /node_modules
+
+#Api Key
 /src/environments/environment.ts
+/src/environments
 
 # profiling files
 chrome-profiler-events*.json

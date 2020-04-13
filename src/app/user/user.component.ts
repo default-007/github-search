@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../user-service.service';
 import { User } from '../user';
 import { Repo } from '../repo';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-user',
@@ -22,19 +21,20 @@ export class UserComponent implements OnInit {
     private repoService: UserServiceService
   ) {}
 
-  search(userName) {
-    this.userService.searchUser(userName).then(
-      (success) => {
-        this.user = this.userService.foundUser;
+  getUser(username) {
+    this.userService.getUserDetail(username).then(
+      (results) => {
+        this.user = this.userService.newUser;
+        console.log(results);
       },
       (error) => {
         console.log(error);
       }
     );
-    this.repoService.getRepos(userName).then(
+    this.repoService.getRepoDetails(username).then(
       (results) => {
-        this.repo = this.repoService.allRepo;
-        console.log(this.repo);
+        this.repo = this.repoService.newRepo;
+        console.log(results);
       },
       (error) => {
         console.log(error);
@@ -43,15 +43,14 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.search('default-007');
+    this.getUser('default-007');
   }
 }
-//getProfile() {
-//this.userService.getUsername(this.username);
-//his.userService.userInfo();
+//getUser() {
+//this.userService.getUserDetails();
 //this.user = this.userService.user;
 
-// this.userService.getRepos(this.username);
+// this.userService.getRepoDetails(this.username);
 // this.repo = this.userService.repo;
 // console.log(this.repo);
 //}
@@ -60,10 +59,10 @@ export class UserComponent implements OnInit {
 //}
 
 // ngOnInit() {
-// this.userService.userInfo();
+// this.userService.getUserDetails('default-007');
 //this.user = this.userService.user;
 
-//this.userService.getRepos(this.username);
+//this.userService.getRepos(default-007);
 //this.repo = this.userService.repo;
 //}
 //}
