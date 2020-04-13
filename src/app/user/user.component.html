@@ -47,31 +47,34 @@
     </div>
     <div class="col-md-8">
       <div>
-        <div class=" card bg-black">
+        <div class="card bg-black">
           <h2 class="text-center">Repositories</h2>
-          <div class="allrepos">
-            <div class="label bg-black" *ngFor="let repository of repo">
-              <div class="card-body">
-                <h4 class="card-title h4">REPO NAME:<span class="rep" appUnderline>{{repository.name}}</span> </h4>
-                <div class="card-text">
-                  <hr>
-                  <h5 class="">DESCRIPTION:<span> {{repository.description}}</span></h5>
-                  <div class="card-subtitle mb-2">Language: <span> {{repository.language}}</span></div>
-                  <div class="card-subtitle mb-2">Created: <span
-                      id="created">{{repository.created_at | datePipe}}</span> <br>
-                    On: <span>{{repository.created_at | date}}</span></div>
-                </div>
+        </div>
+        <div class="">
+          <div class="card bg-black" *ngFor="let repository of repo">
+            <div class="card-body">
+              <h4 class="card-title h4">REPO NAME:<span class="rep" appUnderline>{{repository.name}}</span> </h4>
+              <div class="card-text">
+                <hr>
+                <h5 class="">DESCRIPTION:<span> {{repository.description}}</span></h5>
+                <br>
+                <hr>
+                <div class="card-subtitle mb-2">Language: <span> {{repository.language}}</span></div>
+                <div class="card-subtitle mb-2">Created: <span id="created">{{repository.created_at | datePipe}}</span>
+                  <br>
+                  On: <span>{{repository.created_at | date}}</span></div>
               </div>
-              <div class="card-footer">
-                <div class="btn-group float-right">
-                  <button class="button btn" id="visit"><a href="{{repository.html_url}}" target="blank"
-                      class="card-link">View On Github</a> </button>
-                </div>
+            </div>
+            <div class="card-footer">
+              <div class="btn-group float-right">
+                <button class="button btn" id="visit"><a href="{{repository.html_url}}" target="blank"
+                    class="card-link">View On Github</a> </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
+
+</div>
