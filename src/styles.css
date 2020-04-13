@@ -16,3 +16,6 @@ h2 {
   text-decoration: underline;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+.main {
+  margin-top: 50px;
+}
