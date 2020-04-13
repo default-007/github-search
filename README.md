@@ -10,7 +10,7 @@ GitSearch is an Angular CLI application that allows users to enter their GitHub 
 
 ## Live page
 
-[HERE](https://default-007.github.io/git-search/)
+[HERE](https://default-007.github.io/github-search/user)
 
 ## BDD
 
@@ -24,7 +24,7 @@ GitSearch is an Angular CLI application that allows users to enter their GitHub 
 - cd to the directory on the terminal
 - run the command `ng serve --open` to open in your broeser
 - changes can be made in your IDE
-- The application can also be viewed [HERE](https://default-007.github.io/git-search/)
+- The application can also be viewed [HERE](https://default-007.github.io/github-search/user)
 
 ## Known Bugs
 

@@ -2,7 +2,11 @@ body {
   background-color: black;
 }
 .body {
-  background-color: black;
+  background-color: darkgray;
+  background-image: url(assets/back-hat.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 h2 {
   color: coral;

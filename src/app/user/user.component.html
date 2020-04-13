@@ -51,24 +51,23 @@
           <h2 class="text-center">Repositories</h2>
         </div>
         <div class="">
-          <div class="card bg-black" *ngFor="let repository of repo">
+          <div class="card bg-b" *ngFor="let repository of repo">
+            <div class="card-header">
+              <h4 class="card-title"> <span class="h4">REPOSITORY NAME:</span><span class="rep"
+                  appUnderline>{{repository.name}}</span> </h4>
+              <hr>
+            </div>
             <div class="card-body">
-              <h4 class="card-title h4">REPOSITORY NAME:<span class="rep" appUnderline>{{repository.name}}</span> </h4>
-              <div class="card-text">
-                <hr>
-                <h5 class="">DESCRIPTION:<span> {{repository.description}}</span></h5>
-                <br>
-                <hr>
-                <div class="card-subtitle mb-2">Language: <span> {{repository.language}}</span></div>
-                <div class="card-subtitle mb-2">Created: <span id="created">{{repository.created_at | datePipe}}</span>
-                  <br>
-                  On: <span>{{repository.created_at | date}}</span></div>
-              </div>
+              <p> <span class="h5">DESCRIPTION:</span> {{repository.description}}</p>
+              <div><span class="h5">Language:</span><span class="float-right">{{repository.language}}</span></div>
+              <div><span class="h5">Created:</span> <span
+                  class="float-right">{{repository.created_at | datePipe}}</span></div>
+              <div><span class="h5">On:</span> <span class="float-right">{{repository.created_at | date}}</span></div>
             </div>
             <div class="card-footer">
               <div class="btn-group float-right">
-                <button class="button btn" id="visit"><a href="{{repository.html_url}}" target="blank"
-                    class="card-link">View On Github</a> </button>
+                <button class="button btn"><a href="{{repository.html_url}}" target="blank" class="card-link">View On
+                    Github</a> </button>
               </div>
             </div>
           </div>

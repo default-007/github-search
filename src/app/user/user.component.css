@@ -13,10 +13,7 @@
 .card-footer {
   padding-bottom: 50px;
 }
-span {
-  float: right;
-  font-size: medium;
-}
+
 .card:hover {
   box-shadow: 4px 8px 16px 5px rgb(100, 149, 237);
 }
@@ -61,19 +58,16 @@ span {
   color: aliceblue;
 }
 
-.label {
-  margin: 10px;
-  border: 2px solid black;
-}
-
 .bg-blacks {
-  background-color: black;
+  background-color: #555;
   color: coral;
 }
 .rep {
   font-weight: bold;
   font-style: italic;
   font-size: larger;
+  color: cornflowerblue;
+  float: right;
 }
 
 hr {
@@ -83,4 +77,12 @@ hr {
 .h5 {
   font-weight: bold;
   color: coral;
+}
+.bg-b {
+  background-color: #555;
+  color: aliceblue;
+}
+.bg-b:hover {
+  background-color: aliceblue;
+  color: #000;
 }
