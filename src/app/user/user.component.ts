@@ -6,7 +6,6 @@ import { Repo } from '../repo';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  providers: [UserServiceService],
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
@@ -28,6 +27,7 @@ export class UserComponent implements OnInit {
         console.log(results);
       },
       (error) => {
+        alert('Enter valid username');
         console.log(error);
       }
     );
