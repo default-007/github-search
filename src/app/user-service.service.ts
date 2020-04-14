@@ -11,7 +11,7 @@ export class UserServiceService {
   newUser: User;
   newRepo: Repo;
   apiKey: string = environment.apiKey;
-  //apiUrl = 'https://api.github.com/users';
+  //apiUrl = environment.apiKey;
 
   constructor(private http: HttpClient) {
     this.newUser = new User('', '', '', '', '', '', 0, 0, 0, new Date());
@@ -20,7 +20,7 @@ export class UserServiceService {
 
   // getting user details from the server
   getUserDetail(username: string) {
-    interface Responce {
+    interface Profile {
       url: string;
       name: string;
       email: string;
@@ -36,7 +36,7 @@ export class UserServiceService {
 
     let promise = new Promise((resolve, reject) => {
       this.http
-        .get<Responce>(
+        .get<Profile>(
           'https://api.github.com/users/' +
             username +
             '?access_token=' +
@@ -44,14 +44,14 @@ export class UserServiceService {
         )
         .toPromise()
         .then(
-          (result) => {
-            this.newUser = result;
-            console.log(this.newUser);
+          (response) => {
+            this.newUser = response;
+            //console.log(this.newUser);
             resolve();
           },
           (error) => {
             console.log(error);
-            reject();
+            reject(error);
           }
         );
     });
@@ -80,7 +80,7 @@ export class UserServiceService {
         .then(
           (results) => {
             this.newRepo = results;
-            console.log(results);
+            //console.log(results);
             resolve();
           },
           (error) => {
