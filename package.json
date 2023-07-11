@@ -22,7 +22,7 @@
     "@ngx-progressbar/core": "^3.0.2",
     "@ngx-progressbar/http-client": "^3.0.2",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ngx-progressbar": "^6.0.2",
     "rxjs": "~6.5.4",
     "rxjs-compat": "^6.5.5",
